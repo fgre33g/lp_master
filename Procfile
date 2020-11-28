@@ -1,1 +1,1 @@
-worker: python3.8 start.py
+worker: python start.py
