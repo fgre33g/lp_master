@@ -6,11 +6,11 @@ import time
 from threading import Thread
 
 import vk_api
-from PyQt5 import QtWidgets
+#from PyQt5 import QtWidgets
 from vk_api.longpoll import VkLongPoll, VkEventType
 
-from main.program.style import Ui_MainWindow
-from main.program.style_2 import Ui_Dialog
+#from main.program.style import Ui_MainWindow
+#from main.program.style_2 import Ui_Dialog
 
 run = False
 restart = 0
@@ -158,19 +158,19 @@ class MyThread(Thread):
     def run(self):
         global run
 
-        app = QtWidgets.QApplication(sys.argv)
+        #app = QtWidgets.QApplication(sys.argv)
 
-        MainWindow = QtWidgets.QMainWindow()
-        ui = Ui_MainWindow()
-        ui.setupUi(MainWindow)
-        Dialog = QtWidgets.QDialog()
-        ui_2 = Ui_Dialog()
-        ui_2.setupUi(Dialog)
+        #MainWindow = QtWidgets.QMainWindow()
+        #ui = Ui_MainWindow()
+        #ui.setupUi(#MainWindow)
+        #Dialog = QtWidgets.QDialog()
+        #ui_2 = Ui_Dialog()
+        #ui_2.setupUi(Dialog)
         #MainWindow.show()
 
         def start_token():
             global prov
-            token = ui.lineEdit.text()
+            #token = ui.lineEdit.text()
             print(token)
 
             if token == "Ваш токен" or token == "":
@@ -200,23 +200,23 @@ class MyThread(Thread):
             global run
             global restart
             global sleep
-            Dialog.close()
+            #Dialog.close()
             run = False
             sleep = False
-            MainWindow.show()
+            #MainWindow.show()
             prov = 0
 
         def exit():
             os._exit(1)
 
-        ui.pushButton_2.clicked.connect(start_main)
-        ui.pushButton.clicked.connect(start_token)
-        ui_2.pushButton_2.clicked.connect(exit)
-        ui_2.pushButton.clicked.connect(stop_main)
+        #ui.pushButton_2.clicked.connect(start_main)
+        #ui.pushButton.clicked.connect(start_token)
+        #ui_2.pushButton_2.clicked.connect(exit)
+        #ui_2.pushButton.clicked.connect(stop_main)
 
-        test = app.exec_()
-        if test == 0:
-            os._exit(1)
+        #test = #app.exec_()
+        #if test == 0:
+            #os._exit(1)
 
 
 my_thread = MyThread()
