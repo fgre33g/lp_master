@@ -1,16 +1,11 @@
 import asyncio
 import json
-import os
-import sys
 import time
 from threading import Thread
 
 import vk_api
-#from PyQt5 import QtWidgets
 from vk_api.longpoll import VkLongPoll, VkEventType
 
-#from main.program.style import Ui_MainWindow
-#from main.program.style_2 import Ui_Dialog
 
 run = False
 restart = 0
@@ -142,7 +137,7 @@ class MyThread_sleep(Thread):
 
     def run(self):
         while sleep == True:
-            print("Ждём токен")
+            print("Бот запущен")
             time.sleep(5)
 
 
@@ -158,66 +153,15 @@ class MyThread(Thread):
     def run(self):
         global run
 
-        #app = QtWidgets.QApplication(sys.argv)
-
-        #MainWindow = QtWidgets.QMainWindow()
-        #ui = Ui_MainWindow()
-        #ui.setupUi(#MainWindow)
-        #Dialog = QtWidgets.QDialog()
-        #ui_2 = Ui_Dialog()
-        #ui_2.setupUi(Dialog)
-        #MainWindow.show()
-
-        def start_token():
-            global prov
-            #token = ui.lineEdit.text()
-            print(token)
-
-            if token == "Ваш токен" or token == "":
-                print("токен не перезаписан")
-            else:
-                data = {"token": token}
-                with open("main/database/database_token.json", "w", encoding="utf-8") as file:
-                    file.write(json.dumps(data, ensure_ascii=False, indent=4))
-                print("токен перезаписан")
-
-            prov = 1
-
         def start_main():
             global run
             global prov
             global sleep
-            #MainWindow.close()
             run = True
             sleep = False
-            #Dialog.show()
             prov = 1
 
         start_main()
-
-        def stop_main():
-            global prov
-            global run
-            global restart
-            global sleep
-            #Dialog.close()
-            run = False
-            sleep = False
-            #MainWindow.show()
-            prov = 0
-
-        def exit():
-            os._exit(1)
-
-        #ui.pushButton_2.clicked.connect(start_main)
-        #ui.pushButton.clicked.connect(start_token)
-        #ui_2.pushButton_2.clicked.connect(exit)
-        #ui_2.pushButton.clicked.connect(stop_main)
-
-        #test = #app.exec_()
-        #if test == 0:
-            #os._exit(1)
-
 
 my_thread = MyThread()
 my_thread.start()
